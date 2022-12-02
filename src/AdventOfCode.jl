@@ -28,18 +28,26 @@ function _template(year, day; include_year = true)
     """
     # $(_base_url(year, day))
     using AdventOfCode
+    using Test
 
-    input = readlines("$rel_path")
+    # input = readlines("$rel_path")
+    input = read("$rel_path", String)
+    testinput = read("$(replace(rel_path, "day"=>"test"))", String)
+    # input = read("$rel_path")
 
     function part_1(input)
         nothing
     end
-    @info part_1(input)
+    # @test part_1(input) == 1
+    # @test part_1(input) == 1
+    
 
     function part_2(input)
         nothing
     end
-    @info part_2(input)
+    # @test part_2(testinput) == 1
+    # @test part_2(input) == 1
+
     """
 end
 
@@ -58,6 +66,7 @@ function _setup_data_file(year, day; include_year = true)
         open(data_path, "w+") do io
             write(io, data)
         end
+        cp(data_path, replace(data_path, "day"=>"test"))
     end
 end
 
