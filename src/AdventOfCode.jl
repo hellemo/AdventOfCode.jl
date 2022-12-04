@@ -30,23 +30,30 @@ function _template(year, day; include_year = true)
     using AdventOfCode
     using Test
 
-    # input = readlines("$rel_path")
-    input = read("$rel_path", String)
-    testinput = read("$(replace(rel_path, "day"=>"test"))", String)
-    # input = read("$rel_path")
+    input = "$rel_path"
+    testinput = "$(replace(rel_path, "day"=>"test"))"
 
+    function parse_data(input)
+        for l in eachline(input)
+            @info l
+        end
+    end
+    
     function part_1(input)
         nothing
     end
-    # @test part_1(input) == 1
-    # @test part_1(input) == 1
     
+    # @test part_1(testinput) == 1
+    # @test part_1(input) == 1
+    # @info "Part1:" part_1(input)    
 
     function part_2(input)
         nothing
     end
+    
     # @test part_2(testinput) == 1
     # @test part_2(input) == 1
+    # @info "Part2:" part_2(input) 
 
     """
 end
